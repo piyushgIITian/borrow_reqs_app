@@ -16,9 +16,11 @@ const NavigationBar=()=> {
         <Nav>
          
           <Nav.Link href="/" style={navStyle}>HOME</Nav.Link>
+          <Nav.Link href="/requests" style={navStyle}>ALL REQUESTS</Nav.Link>
           {!currentUser && <Nav.Link href="/signin" style={navStyle}>SIGNIN</Nav.Link>}
           { currentUser && <div>
             <Nav.Link href="/dashboard" style={navStyle}>DASHBOARD</Nav.Link>
+            
 
           </div>
           }

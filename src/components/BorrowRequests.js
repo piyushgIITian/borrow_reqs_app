@@ -6,7 +6,7 @@ import { Button, Card, Container } from 'react-bootstrap';
 export default function BorrowRequests() {
     const [responses, setResponses] = React.useState()
     if(!responses){
-        axios.get('http://borrow-req-app.herokuapp.com/borrow').then((res) => {
+        axios.get('https://borrow-req-app.herokuapp.com/borrow').then((res) => {
             setResponses(res.data)
         })
 

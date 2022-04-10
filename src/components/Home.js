@@ -19,7 +19,7 @@ const Home = () => {
                     </div>
                 }
                 {
-                    currentUser && <div>
+                    currentUser && <div style={{textAlign:"center"}}>
                         <br/><br/>
                         <div style={{marginTop:"150px",fontSize:"38px",fontWeight:"500"}}>Welcome 👋,{currentUser.phoneNumber}</div><br />
                         <div style={{marginTop:"45px",marginBottom:"20px",fontSize:"32px"}}>Go to dashboard to make request</div>

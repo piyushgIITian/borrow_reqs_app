@@ -1,17 +1,27 @@
 import React from 'react'
 import axios from 'axios';
-import { Card, Container } from 'react-bootstrap';
+import { Button, Card, Container } from 'react-bootstrap';
 
 
 export default function BorrowRequests() {
     const [responses, setResponses] = React.useState()
     if(!responses){
-        axios.get('https://borrow-req-app.herokuapp.com/borrow').then((res) => {
-    
+        axios.get('http://borrow-req-app.herokuapp.com/borrow').then((res) => {
             setResponses(res.data)
         })
 
     }
+    // async function handleClick(id){
+    //     const api = "http://borrow-req-app.herokuapp.com/borrow/"
+    //     const finalApi = api + id
+    //     console.log(finalApi)
+    //    await axios.delete(finalApi).then((res)=>{
+    //        console.log(res)
+    //    })
+    //    await axios.get('http://borrow-req-app.herokuapp.com/borrow/').then((res) => {
+    //     setResponses(res.data)
+    // })
+    // }
 
     return (
         <div>
@@ -38,6 +48,7 @@ export default function BorrowRequests() {
                                                 Upi id of borrower: {data.upiId}
                                             </Card.Text>
                                         </Card.Body>
+                                        {/* <Button variant="dark" onClick={handleClick(data._id)}>Delete Request</Button> */}
                                     </Card>
                                 </div>
                             );

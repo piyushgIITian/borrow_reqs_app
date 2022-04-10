@@ -1,9 +1,54 @@
 import React from 'react'
+import axios from 'axios';
+import { Card, Container } from 'react-bootstrap';
+
 
 export default function BorrowRequests() {
-  return (
-    <div>
-        
-    </div>
-  )
+    const [responses, setResponses] = React.useState()
+    if(!responses){
+        axios.get('https://borrow-req-app.herokuapp.com/borrow').then((res) => {
+    
+            setResponses(res.data)
+        })
+
+    }
+
+    return (
+        <div>
+            <Container className="d-flex align-items-center justify-content-center" style={{ minHeight: "100vh" }}>
+                <div className="w-100" style={{ maxWidth: "400px" }}>
+                    
+                    {
+                        responses?.map((data, key) => {
+                            return (
+                                <div key={key}>
+                                    <Card className="m-2 shadow p-3 bg-white borrow">
+                                        <Card.Body>
+                                            <Card.Title>Request Queue:{key}</Card.Title>
+                                            <Card.Text>
+                                                Amount Requested: {data.amount}
+                                            </Card.Text>
+                                            <Card.Text>
+                                                Reason for borrowing: {data.reason}
+                                            </Card.Text>
+                                            <Card.Text>
+                                                Duration for borrow: {data.duration}
+                                            </Card.Text>
+                                            <Card.Text>
+                                                Upi id of borrower: {data.upiId}
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                            );
+                        }
+                        )
+                    
+                    }
+                    
+                </div>
+            </Container>
+
+        </div>
+    )
 }

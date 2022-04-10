@@ -4,7 +4,7 @@ import { AuthProvider} from "./authcontext"
 import firebase from "firebase/app";
 import "firebase/auth";
 import { auth } from "./firebase"
-import './App.css'
+
 // react router
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -13,6 +13,7 @@ import SignIn from "./components/SignIn";
 import Dashboard from "./components/Dashboard";
 import NavigationBar from "./components/Navbar";
 import Home from "./components/Home";
+import BorrowRequests from "./components/BorrowRequests";
 
 const App = () => {
   
@@ -111,6 +112,9 @@ const App = () => {
               otpSubmit={otpSubmit}
               viewOtpForm={viewOtpForm}
             />
+          </Route>
+          <Route path='/requests' exact>
+            <BorrowRequests/>
           </Route>
         </Switch>
       </AuthProvider>
